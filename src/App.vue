@@ -6,6 +6,9 @@ import { relaunch } from '@tauri-apps/plugin-process';
 const greetMsg = ref("");
 const name = ref("");
 
+const testRelaunch = async () =>{
+    await relaunch();
+}
 const checkll = async () =>{
     console.log('开始检查')
     const update = await check();
@@ -48,7 +51,7 @@ async function greet() {
 
 <template>
   <main class="container">
-<!--    <h1>版本1.0.2</h1>-->
+<!--    <h1>版本1.0.0</h1>-->
     <h1>Welcome to Tauri + Vue</h1>
 
     <div class="row">
@@ -68,6 +71,7 @@ async function greet() {
       <input id="greet-input" v-model="name" placeholder="Enter a name..." />
       <button type="submit">Greet</button>
       <button @click="checkll">检查</button>
+      <button @click="testRelaunch">重启</button>
     </form>
     <p>{{ greetMsg }}</p>
   </main>
